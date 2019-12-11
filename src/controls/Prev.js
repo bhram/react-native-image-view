@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, I18nManager } from 'react-native';
 
-const HIT_SLOP = {top: 15, left: 15, right: 15, bottom: 15};
+const HIT_SLOP = { top: 15, left: 15, right: 15, bottom: 15 };
 
 const styles = StyleSheet.create({
     prevButton: {
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         color: '#FFF',
         textAlign: 'center',
+        transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
     },
 });
 
-export default ({onPress}: {onPress: () => *}) => (
+export default ({ onPress }: { onPress: () => * }) => (
     <TouchableOpacity
         hitSlop={HIT_SLOP}
         style={styles.prevButton}
